@@ -12,7 +12,7 @@ env:
 jobs:
   build:
     name: Deployment
-    runs-on: ubuntu-latest
+    runs-on: imply-ubuntu-latest
 
     steps:
       - name: Set short git commit SHA
