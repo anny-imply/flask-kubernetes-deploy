@@ -42,7 +42,9 @@ jobs:
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
       - name: Update kube config
-        run: aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION
+        run: |
+          aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION
+          kubectl config use-context arn:aws:eks:us-east-1:329599640763:cluster/iow-dev-us-east-1
 
       - name: Deploy to EKS
         env:
